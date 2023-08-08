@@ -14,29 +14,28 @@
     <div class="video-card-container">
         <div class="video-card video-container">
             <video class="aamp-video" autoplay muted id="videoPlayer" style="height:100%; width:100%; position:absolute; bottom:0; left:0"></video>
-            <button id="playButton" class="play-button">Play</button>
+            <!-- No need for the "Play" button in this case -->
         </div>
-        <!-- Repeat the above structure for other video players and play buttons -->
-        <!-- ... -->
     </div>
 
     <!-- your script links and any other body content -->
     <script>
-        // Get references to the video element and the play button
+        // Get reference to the video element
         const videoPlayer = document.getElementById("videoPlayer");
-        const playButton = document.getElementById("playButton");
 
         // Initialize the AAMP player
         const player = new AAMPMediaPlayer();
 
-        // Add event listener to the play button
-        playButton.addEventListener("click", () => {
-            // Load the video URL
-            const videoUrl = "your_video_url_here";
-            player.load(videoUrl);
+        // Listen for the Enter key press event on the document
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                // Load the video URL
+                const videoUrl = "your_video_url_here";
+                player.load(videoUrl);
 
-            // Play the video
-            player.play();
+                // Play the video
+                player.play();
+            }
         });
     </script>
 </body>
