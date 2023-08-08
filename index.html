@@ -1,43 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- your meta tags, title, and other head content -->
-
-    <!-- Include AAMP media player library -->
-<!--     <script src="path/to/AAMPMediaPlayer.js"></script> -->
-
-    <!-- your stylesheet links or any other head content -->
-</head>
-<body>
-    <!-- your header and other HTML content -->
-
-    <div class="video-card-container">
-        <div class="video-card video-container">
-            <video class="aamp-video" autoplay muted id="videoPlayer" style="height:100%; width:100%; position:absolute; bottom:0; left:0"></video>
-            <!-- No need for the "Play" button in this case -->
-        </div>
-    </div>
-
-    <!-- your script links and any other body content -->
-    <script>
-        // Get reference to the video element
-        const videoPlayer = document.getElementById("videoPlayer");
-
-        // Initialize the AAMP player
-        const player = new AAMPMediaPlayer();
-
-        // Listen for the Enter key press event on the document
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                // Load the video URL
-                //const your_video_url_here = "https://dash.akamaized.net/dash264/TestCasesIOP33/multiplePeriods/4/manifest_multiple_Periods_Different_SegmentDuration.mpd";
-                const videoUrl = "https://dash.akamaized.net/dash264/TestCasesIOP33/multiplePeriods/4/manifest_multiple_Periods_Different_SegmentDuration.mpd";
-                player.load(videoUrl);
-
-                // Play the video
-                player.play();
-            }
-        });
-    </script>
-</body>
+<html>
+   <head>
+      <title>AAMP playback in WPE browser using UVE APIs</title>
+   </head>
+   <script>var url = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";
+      window.onload = function() {
+         var player = new AAMPMediaPlayer();
+         player.load(url);
+      }
+   </script>
+   <body>
+      <video style="height:100%; width:100%; position:absolute; bottom:0; left:0" src="dummy.mp4" type="video/aamp"/>
+      </video>
+   </body>
 </html>
