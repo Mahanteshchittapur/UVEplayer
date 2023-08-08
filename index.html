@@ -1,15 +1,24 @@
+<!DOCTYPE html>
 <html>
-   <head>
-      <title>AAMP playback in WPE browser using UVE APIs</title>
-   </head>
-   <script>var url = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";
-      window.onload = function() {
-         var player = new AAMPMediaPlayer();
-         player.load(url);
-      }
-   </script>
-   <body>
-      <video style="height:100%; width:100%; position:absolute; bottom:0; left:0" src="dummy.mp4" type="video/aamp"/>
-      </video>
-   </body>
+<head>
+    <title>AAMP playback in WPE browser using UVE APIs</title>
+    <script>
+        var url = "https://assets.afcdn.com/video49/20210722/v_645516.m3u8";
+        var player;
+
+        window.onload = function() {
+            player = new AAMPMediaPlayer();
+        }
+
+        function playVideo() {
+            if (player) {
+                player.load(url);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="playVideo()">Play</button>
+    <video style="height:100%; width:100%; position:absolute; bottom:0; left:0" type="video/aamp"></video>
+</body>
 </html>
