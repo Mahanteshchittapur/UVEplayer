@@ -1,42 +1,70 @@
+
+<!DOCTYPE html>
 <html>
-   <head>
-      <title>AAMP playback in WPE browser using UVE APIs</title>
-   </head>
-   <script>var url = "https://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+<head>
+    <title>AAMP playback in WPE browser using UVE APIs</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #video-container {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+
+        button:focus {
+            outline: none;
+        }
+
+    </style>
+   <script>
+     
+        function playVideo() {
+            var url = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";
       window.onload = function() {
          var player = new AAMPMediaPlayer();
          player.load(url);
       }
-   </script>
-   <body>
-      <video style="height:100%; width:100%; position:absolute; bottom:0; left:0" src="dummy.mp4" type="video/aamp"/>
-      </video>
-   </body>
-</html>
-<!-- <!DOCTYPE html>
-<html>
-   <head>
-      <title>AAMP playback in WPE browser using UVE APIs</title>
-     <script>
-         var url = "https://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-         var player;  // Declare player variable
+            //document.body.style.backgroundColor = "lightgray";
+            
+        }
 
-         // Function to start media playback
-         function startPlayback() {
-            if (!player) {
-               player = new AAMPMediaPlayer(); // Initialize player if not already done
-               player.attach(document.querySelector('video')); // Attach player to video element
-            }
-            player.load(url); // Load the media
-         }
-      </script>
-   </head>
-   <body>
-      <h1>Hello</h1>
-      <video style="height:100%; width:100%; position:absolute; bottom:0; left:0"></video>
-      <button onclick="startPlayback()">Play</button> 
-   </body>
-</html>
- 
+        
+            document.addEventListener("keydown", function(event) {
+                if (event.keyCode === 13) { // Enter key
+                    playVideo(); // Call playVideo() function
+                    //document.body.style.backgroundColor = "lightgray"; // Change color to blue
+                }
+            });
+        
 
- -->
+      
+      
+    </script>
+</head>
+<body>
+    
+        <div id="video-container"></div>
+               <button onclick="playVideo()">Play</button> 
+        </div>
+         
+    
+</body>
+</html>
